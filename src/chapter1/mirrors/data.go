@@ -1,7 +1,7 @@
 package mirrors
 
 // MirrorList is list of Debian mirror sites
-var MirrorList = [...]string{
+var MirrorList = []string{
 	"http://ftp.am.debian.org/debian/", "http://ftp.au.debian.org/debian/",
 	"http://ftp.at.debian.org/debian/", "http://ftp.by.debian.org/debian/",
 	"http://ftp.be.debian.org/debian/", "http://ftp.br.debian.org/debian/",
