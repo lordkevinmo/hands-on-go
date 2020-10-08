@@ -20,6 +20,7 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.4
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect
+	github.com/pkg/errors v0.9.1
 	github.com/revel/cmd v1.0.3 // indirect
 	github.com/revel/config v1.0.0 // indirect
 	github.com/revel/log15 v2.11.20+incompatible // indirect
