@@ -22,7 +22,7 @@ type DB struct {
 
 // Movie holds a movie data
 type Movie struct {
-	ID        interface{} `json:"id" bson:"_id, omitempty"`
+	ID        interface{} `json:"id" bson:"_id,omitempty"`
 	Name      string      `json:"name" bson:"name"`
 	Year      string      `json:"year" bson:"year"`
 	Directors []string    `json:"directors" bson:"directors"`
@@ -73,6 +73,43 @@ func (db *DB) PostMovie(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// UpdateMovie modifies the data of given resource
+func (db *DB) UpdateMovie(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	var movie Movie
+	putBody, _ := ioutil.ReadAll(r.Body)
+	json.Unmarshal(putBody, &movie)
+
+	objectID, _ := primitive.ObjectIDFromHex(vars["id"])
+	filter := bson.M{"_id": objectID}
+	update := bson.M{"$set": &movie}
+	_, err := db.collection.UpdateOne(context.TODO(), filter, update)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte(err.Error()))
+	} else {
+		w.Header().Set("Content-Type", "application/json")
+		w.Write([]byte("Updated successfully!"))
+	}
+}
+
+// DeleteMovie delete the data of given resource
+func (db *DB) DeleteMovie(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	objectID, _ := primitive.ObjectIDFromHex(vars["id"])
+	filter := bson.M{"_id": objectID}
+
+	_, err := db.collection.DeleteOne(context.TODO(), filter)
+
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte(err.Error()))
+	} else {
+		w.Header().Set("Content-Type", "application/json")
+		w.Write([]byte("Deleted successfully!"))
+	}
+}
+
 func main() {
 	clientOptions :=
 		options.Client().ApplyURI("mongodb://localhost:27017")
@@ -86,8 +123,10 @@ func main() {
 	db := &DB{collection: collection}
 
 	r := mux.NewRouter()
-	r.HandleFunc("/v1/movies/{id:[a-zA-Z0-9]}", db.GetMovie).Methods(http.MethodGet)
+	r.HandleFunc("/v1/movies/{id:[a-zA-Z0-9]*}", db.GetMovie).Methods(http.MethodGet)
 	r.HandleFunc("/v1/movies", db.PostMovie).Methods(http.MethodPost)
+	r.HandleFunc("/v1/movies/{id:[a-zA-Z0-9]*}", db.UpdateMovie).Methods(http.MethodPut)
+	r.HandleFunc("/v1/movies/{id:[a-zA-Z0-9]*}", db.DeleteMovie).Methods(http.MethodDelete)
 
 	srv := &http.Server{
 		Handler:      r,
