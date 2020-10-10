@@ -88,7 +88,7 @@ func (db *DB) UpdateMovie(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte(err.Error()))
 	} else {
-		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Content-Type", "text/plain")
 		w.Write([]byte("Updated successfully!"))
 	}
 }
@@ -105,7 +105,7 @@ func (db *DB) DeleteMovie(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte(err.Error()))
 	} else {
-		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Content-Type", "text/plain")
 		w.Write([]byte("Deleted successfully!"))
 	}
 }

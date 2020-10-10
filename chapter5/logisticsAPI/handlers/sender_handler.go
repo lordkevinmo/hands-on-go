@@ -53,3 +53,39 @@ func (db *DB) AddSender(w http.ResponseWriter, r *http.Request) {
 		w.Write(response)
 	}
 }
+
+// UpdateSender modified the sender given the ID
+func (db *DB) UpdateSender(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	var sender data.Sender
+	putBody, _ := ioutil.ReadAll(r.Body)
+	json.Unmarshal(putBody, &sender)
+
+	objectID, _ := primitive.ObjectIDFromHex(vars["id"])
+	filter := bson.M{"_id": objectID}
+	update := bson.M{"$set": &sender}
+	_, err := db.collection.UpdateOne(context.TODO(), filter, update)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte(err.Error()))
+	} else {
+		w.Header().Set("Content-Type", "text/plain")
+		w.Write([]byte("Updated successfully"))
+	}
+}
+
+// RemoveSender deleted the sender from the db collection given the ID
+func (db *DB) RemoveSender(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	objectID, _ := primitive.ObjectIDFromHex(vars["id"])
+	filter := bson.M{"_id": objectID}
+
+	_, err := db.collection.DeleteOne(context.TODO(), filter)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte(err.Error()))
+	} else {
+		w.Header().Set("Content-Type", "text/plain")
+		w.Write([]byte("Deleted Successfuly"))
+	}
+}
