@@ -10,33 +10,39 @@ import (
 	"github.com/lordkevinmo/hands-on-go/chapter5/logisticsAPI/data"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
-// GetSender fetch sender with a given ID
-func (db *DB) GetSender(w http.ResponseWriter, r *http.Request) {
+// DB holds the mongo db driver collection
+type DB struct {
+	collection *mongo.Collection
+}
+
+// GetReceiver fetch Receiver with a given ID
+func (db *DB) GetReceiver(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	var sender data.Sender
+	var receiver data.Receiver
 	objectID, _ := primitive.ObjectIDFromHex(vars["id"])
 	filter := bson.M{"_id": objectID}
-	err := db.collection.FindOne(context.TODO(), filter).Decode(&sender)
+	err := db.collection.FindOne(context.TODO(), filter).Decode(&receiver)
 
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte(err.Error()))
 	} else {
 		w.Header().Set("Content-Type", "application/json")
-		response, _ := json.Marshal(sender)
+		response, _ := json.Marshal(receiver)
 		w.WriteHeader(http.StatusOK)
 		w.Write(response)
 	}
 }
 
-// AddSender add new sender to our collection DB
-func (db *DB) AddSender(w http.ResponseWriter, r *http.Request) {
-	var sender data.Sender
+// AddReceiver add new receiver to our collection DB
+func (db *DB) AddReceiver(w http.ResponseWriter, r *http.Request) {
+	var receiver data.Receiver
 	body, _ := ioutil.ReadAll(r.Body)
-	json.Unmarshal(body, &sender)
-	result, err := db.collection.InsertOne(context.TODO(), sender)
+	json.Unmarshal(body, &receiver)
+	result, err := db.collection.InsertOne(context.TODO(), receiver)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte(err.Error()))
@@ -48,16 +54,16 @@ func (db *DB) AddSender(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// UpdateSender modified the sender given the ID
-func (db *DB) UpdateSender(w http.ResponseWriter, r *http.Request) {
+// UpdateReceiver modified the receiever given the ID
+func (db *DB) UpdateReceiver(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	var sender data.Sender
+	var receiver data.Receiver
 	putBody, _ := ioutil.ReadAll(r.Body)
-	json.Unmarshal(putBody, &sender)
+	json.Unmarshal(putBody, &receiver)
 
 	objectID, _ := primitive.ObjectIDFromHex(vars["id"])
 	filter := bson.M{"_id": objectID}
-	update := bson.M{"$set": &sender}
+	update := bson.M{"$set": &receiver}
 	_, err := db.collection.UpdateOne(context.TODO(), filter, update)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -68,8 +74,8 @@ func (db *DB) UpdateSender(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// RemoveSender deleted the sender from the db collection given the ID
-func (db *DB) RemoveSender(w http.ResponseWriter, r *http.Request) {
+// RemoveReceiever deleted the receiver from the db collection given the ID
+func (db *DB) RemoveReceiever(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	objectID, _ := primitive.ObjectIDFromHex(vars["id"])
 	filter := bson.M{"_id": objectID}
