@@ -37,11 +37,11 @@ func main() {
 	// Create new Router
 	r := mux.NewRouter()
 	// Attach an elegant path with handler
-	r.HandleFunc("v1/short/{encoded_string:[a-zA-Z0-9]*}", dbClient.GetOriginalURL).Methods(http.MethodGet)
-	r.HandleFunc("v1/short", dbClient.GenerateShortURL).Methods(http.MethodPost)
+	r.HandleFunc("/v1/short/{encoded_string:[a-zA-Z0-9]*}", dbClient.GetOriginalURL).Methods(http.MethodGet)
+	r.HandleFunc("/v1/short", dbClient.GenerateShortURL).Methods(http.MethodPost)
 	srv := &http.Server{
 		Handler:      r,
-		Addr:         "127.0.0.1",
+		Addr:         "127.0.0.1:8000",
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
@@ -54,7 +54,7 @@ func (driver *DBClient) GenerateShortURL(w http.ResponseWriter, r *http.Request)
 	var record Record
 	postBody, _ := ioutil.ReadAll(r.Body)
 	err := json.Unmarshal(postBody, &record)
-	err = driver.db.QueryRow("INSERT INTO web_url(url) VALUES() RETURNING id", record.URL).Scan(&id)
+	err = driver.db.QueryRow("INSERT INTO web_url(url) VALUES($1) RETURNING id", record.URL).Scan(&id)
 	responseMap := map[string]string{"encoded_string": utils.ToBase62(id)}
 
 	if err != nil {
