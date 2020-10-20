@@ -13,9 +13,11 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/gorilla/rpc v1.2.0
 	github.com/inconshreveable/log15 v0.0.0-20200109203555-b30bc20e4fd1 // indirect
+	github.com/jinzhu/gorm v1.9.16
 	github.com/json-iterator/go v1.1.10 // indirect
 	github.com/julienschmidt/httprouter v1.3.0
 	github.com/justinas/alice v1.2.0
+	github.com/lib/pq v1.8.0
 	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/mattn/go-sqlite3 v1.14.4
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
@@ -38,4 +40,5 @@ require (
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
 	gopkg.in/stack.v0 v0.0.0-20141108040640-9b43fcefddd0 // indirect
 	gopkg.in/yaml.v2 v2.3.0 // indirect
+	gorm.io/gorm v1.20.3
 )
