@@ -12,4 +12,12 @@
 *.out
 
 # Dependency directories (remove the comment below to include it)
-# vendor/
+vendor/
+*.toml
+
+# Mac OS files
+.DS_Store
+
+# SQLite Database file
+*.db
+
