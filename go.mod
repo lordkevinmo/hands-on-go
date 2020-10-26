@@ -9,6 +9,7 @@ require (
 	github.com/go-playground/validator/v10 v10.4.0 // indirect
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/golang/protobuf v1.4.2
+	github.com/google/go-querystring v1.0.0
 	github.com/gorilla/handlers v1.5.1
 	github.com/gorilla/mux v1.8.0
 	github.com/gorilla/rpc v1.2.0
@@ -17,6 +18,7 @@ require (
 	github.com/json-iterator/go v1.1.10 // indirect
 	github.com/julienschmidt/httprouter v1.3.0
 	github.com/justinas/alice v1.2.0
+	github.com/levigross/grequests v0.0.0-20190908174114-253788527a1a
 	github.com/lib/pq v1.8.0
 	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/mattn/go-sqlite3 v1.14.4
@@ -35,6 +37,7 @@ require (
 	github.com/xeonx/timeago v1.0.0-rc4 // indirect
 	go.mongodb.org/mongo-driver v1.4.1
 	golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0 // indirect
+	golang.org/x/net v0.0.0-20200501053045-e0ff5e5a1de5
 	golang.org/x/sys v0.0.0-20201005172224-997123666555 // indirect
 	google.golang.org/grpc v1.33.0
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.0.0 // indirect
