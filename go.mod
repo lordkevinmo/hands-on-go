@@ -28,8 +28,10 @@ require (
 	github.com/revel/log15 v2.11.20+incompatible // indirect
 	github.com/revel/pathtree v0.0.0-20140121041023-41257a1839e9 // indirect
 	github.com/revel/revel v1.0.0 // indirect
+	github.com/spf13/cobra v1.1.1
 	github.com/twinj/uuid v1.0.0 // indirect
 	github.com/ugorji/go v1.1.10 // indirect
+	github.com/urfave/cli v1.22.4
 	github.com/xeonx/timeago v1.0.0-rc4 // indirect
 	go.mongodb.org/mongo-driver v1.4.1
 	golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0 // indirect
