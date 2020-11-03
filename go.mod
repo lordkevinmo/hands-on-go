@@ -7,6 +7,7 @@ require (
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-playground/validator/v10 v10.4.0 // indirect
+	github.com/go-redis/redis/v8 v8.3.2 // indirect
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/golang/protobuf v1.4.2
 	github.com/google/go-querystring v1.0.0
@@ -31,13 +32,14 @@ require (
 	github.com/revel/pathtree v0.0.0-20140121041023-41257a1839e9 // indirect
 	github.com/revel/revel v1.0.0 // indirect
 	github.com/spf13/cobra v1.1.1
+	github.com/streadway/amqp v1.0.0
 	github.com/twinj/uuid v1.0.0 // indirect
 	github.com/ugorji/go v1.1.10 // indirect
 	github.com/urfave/cli v1.22.4
 	github.com/xeonx/timeago v1.0.0-rc4 // indirect
 	go.mongodb.org/mongo-driver v1.4.1
 	golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0 // indirect
-	golang.org/x/net v0.0.0-20200501053045-e0ff5e5a1de5
+	golang.org/x/net v0.0.0-20201006153459-a7d1128ccaa0
 	golang.org/x/sys v0.0.0-20201005172224-997123666555 // indirect
 	google.golang.org/grpc v1.33.0
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.0.0 // indirect
