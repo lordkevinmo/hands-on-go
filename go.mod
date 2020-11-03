@@ -11,6 +11,7 @@ require (
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/golang/protobuf v1.4.2
 	github.com/google/go-querystring v1.0.0
+	github.com/google/uuid v1.1.2
 	github.com/gorilla/handlers v1.5.1
 	github.com/gorilla/mux v1.8.0
 	github.com/gorilla/rpc v1.2.0
@@ -33,7 +34,7 @@ require (
 	github.com/revel/revel v1.0.0 // indirect
 	github.com/spf13/cobra v1.1.1
 	github.com/streadway/amqp v1.0.0
-	github.com/twinj/uuid v1.0.0 // indirect
+	github.com/twinj/uuid v1.0.0
 	github.com/ugorji/go v1.1.10 // indirect
 	github.com/urfave/cli v1.22.4
 	github.com/xeonx/timeago v1.0.0-rc4 // indirect
