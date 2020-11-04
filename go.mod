@@ -10,7 +10,7 @@ require (
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/go-redis/redis/v8 v8.3.3
 	github.com/go-stack/stack v1.8.0 // indirect
-	github.com/golang/protobuf v1.4.2
+	github.com/golang/protobuf v1.4.3
 	github.com/google/go-querystring v1.0.0
 	github.com/google/uuid v1.1.2
 	github.com/gorilla/handlers v1.5.1
@@ -28,6 +28,7 @@ require (
 	github.com/machinebox/graphql v0.2.2
 	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/mattn/go-sqlite3 v1.14.4
+	github.com/micro/protoc-gen-micro v1.0.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/pkg/errors v0.9.1
