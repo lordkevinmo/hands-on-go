@@ -23,6 +23,7 @@ require (
 	github.com/justinas/alice v1.2.0
 	github.com/levigross/grequests v0.0.0-20190908174114-253788527a1a
 	github.com/lib/pq v1.8.0
+	github.com/machinebox/graphql v0.2.2
 	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/mattn/go-sqlite3 v1.14.4
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
