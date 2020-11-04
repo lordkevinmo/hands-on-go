@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 
-	proto "github.com/lordkevinmo/chapter11/encryptedService/proto"
+	proto "github.com/lordkevinmo/hands-on-go/chapter11/encryptedService/proto"
 )
 
 // Encrypter holds the information about methods
