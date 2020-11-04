@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	proto "github.com/lordkevinmo/hands-on-go/chapter11/encryptedService/proto"
+	proto "github.com/lordkevinmo/hands-on-go/chapter11/encryptService/proto"
 	micro "github.com/micro/go-micro"
 )
 
