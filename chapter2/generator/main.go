@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/lordkevinmo/hands-on-go/src/chapter2/uuidgenerator"
+	"github.com/lordkevinmo/hands-on-go/chapter2/uuidgenerator"
 )
 
 func main() {

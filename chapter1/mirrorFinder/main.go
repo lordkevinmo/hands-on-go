@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/lordkevinmo/hands-on-go/src/chapter1/mirrors"
+	"github.com/lordkevinmo/hands-on-go/chapter1/mirrors"
 )
 
 type response struct {

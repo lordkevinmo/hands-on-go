@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lordkevinmo/hands-on-go/src/chapter4/dbutils"
+	"github.com/lordkevinmo/hands-on-go/chapter4/dbutils"
 	_ "github.com/mattn/go-sqlite3"
 )
 
