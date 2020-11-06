@@ -6,6 +6,7 @@ require (
 	github.com/asim/nitro/v3 v3.3.0 // indirect
 	github.com/emicklei/go-restful v2.14.2+incompatible
 	github.com/francoispqt/gojay v1.2.13 // indirect
+	github.com/garyburd/redigo v1.6.2 // indirect
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-playground/validator/v10 v10.4.0 // indirect
 	github.com/go-redis/redis v6.15.9+incompatible
@@ -51,6 +52,7 @@ require (
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 	google.golang.org/grpc v1.27.0
 	google.golang.org/protobuf v1.25.0
+	gopkg.in/boj/redistore.v1 v1.0.0-20160128113310-fc113767cd6b
 )
 
 replace google.golang.org/grpc => github.com/grpc/grpc-go v1.26.0
