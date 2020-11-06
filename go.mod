@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	github.com/asim/nitro/v3 v3.3.0 // indirect
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/emicklei/go-restful v2.14.2+incompatible
 	github.com/francoispqt/gojay v1.2.13 // indirect
 	github.com/garyburd/redigo v1.6.2 // indirect
